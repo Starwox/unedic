@@ -180,4 +180,38 @@ class APIController extends AbstractController
             "success" => "yes"
         ]);
     }
+
+    /**
+     * @Route("/api/oneDepart", name="get_oneDepart", methods={"POST","HEAD"})
+     */
+    public function getOneDepartment(Request $request): Response
+    {
+        $id = $request->request->get('department_id');
+
+        $em = $this->getDoctrine()->getManager()->getRepository(Department::class);
+        $object = $em->find($id);
+
+        $encoders = new JsonEncoder();
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
+                return $object;
+            },
+        ];
+
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
+        $serializer = new Serializer([$normalizer], [$encoders]);
+        $data = $serializer->serialize($object, 'json', [AbstractNormalizer::ATTRIBUTES => [
+            'id',
+            'Name',
+            'Capacity',
+            'student'  => [
+                'id',
+                'FirstName',
+                'LastName',
+                'NumEtud'
+            ]
+        ]]);
+
+        return new Response($data);
+    }
 }
