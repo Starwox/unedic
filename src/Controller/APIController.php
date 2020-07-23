@@ -41,13 +41,13 @@ class APIController extends AbstractController
         $serializer = new Serializer([$normalizer], [$encoders]);
         $data = $serializer->serialize($object, 'json', [AbstractNormalizer::ATTRIBUTES => [
             'id',
-            'name',
-            'capacity',
+            'Name',
+            'Capacity',
             'student'  => [
                 'id',
-                'firstname',
-                'lastname',
-                'numetud'
+                'FirstName',
+                'LastName',
+                'NumEtud'
             ]
         ]]);
 
@@ -114,11 +114,10 @@ class APIController extends AbstractController
 
 
     /**
-     * @Route("/api/create_dpartment", name="api_create_department", methods={"POST","HEAD"})
+     * @Route("/api/create_department", name="api_create_department", methods={"POST","HEAD"})
      */
     public function ApiCreateDepartment(Request $request): JsonResponse
     {
-        $em = $this->getDoctrine()->getManager();
         $name = $request->request->get('name');
         $capacity = $request->request->get('capacity');
 
@@ -136,16 +135,16 @@ class APIController extends AbstractController
             $capacity = $jsonId['capacity'];
         }
 
-        $repo = $this->getDoctrine()->getRepository(Student::class);
-        $checker = $repo->findBy([
-            'name' => $name,
-            'capacity' => $capacity
-        ]);
+        $repo = $this->getDoctrine()->getRepository(Department::class);
+        $checker = $repo->findBy(
+            ["Name" => $name]
+        );
 
         if (!empty($checker)) {
             return new JsonResponse(['success' => 'no']);
         }
 
+        $em = $this->getDoctrine()->getManager();
         $department = new Department();
         $department->setName($name);
         $department->setCapacity($capacity);
@@ -154,6 +153,31 @@ class APIController extends AbstractController
 
         return new JsonResponse([
             'success' => 'yes',
+        ]);
+    }
+
+    /**
+     * @Route("/api/add_studtodep", name="api_add_studtodep", methods={"POST","HEAD"})
+     */
+    public function ApiAddStudToDep(Request $request): JsonResponse
+    {
+        $studentId = $request->request->get('student_id');
+        $departmentId = $request->request->get('department_id');
+
+        $studRepo = $this->getDoctrine()->getRepository(Student::class);
+        $departmentRepo = $this->getDoctrine()->getRepository(Department::class);
+
+        $student = $studRepo->find($studentId);
+        $deparment = $departmentRepo->find($departmentId);
+
+        $deparment->addStudent($student);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($deparment);
+        $em->flush();
+
+        return new JsonResponse([
+            "success" => "yes"
         ]);
     }
 }

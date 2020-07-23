@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Department;
 use App\Form\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Student;
