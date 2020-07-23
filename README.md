@@ -42,9 +42,9 @@ php bin/console app:create-department
     "Name"
     "Capacity"
     "student" => [
-      "id",
-      "FirstName",
-      "LastName",
+      "id"
+      "FirstName"
+      "LastName"
       "NumEtud"
     ]
 }
@@ -58,10 +58,10 @@ php bin/console app:create-department
 
 ```json
 {
-    "success",
-    "id",
-    "firstname",
-    "lastname",
+    "success"
+    "id"
+    "firstname"
+    "lastname"
     "numetud"
 }
 ```
@@ -94,9 +94,9 @@ php bin/console app:create-department
     "Name"
     "Capacity"
     "student" => [
-      "id",
-      "FirstName",
-      "LastName",
+      "id"
+      "FirstName"
+      "LastName"
       "NumEtud"
     ]
 }
