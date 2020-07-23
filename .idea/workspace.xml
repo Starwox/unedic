@@ -68,8 +68,8 @@
       <file leaf-file-name="APIController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="57" column="34" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="34" />
+            <state relative-caret-position="251">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
                 <element signature="e#118#144#0#PHP" expanded="true" />
               </folding>
@@ -396,16 +396,15 @@
       <workItem from="1595444469806" duration="5414000" />
       <workItem from="1595504097644" duration="1707000" />
       <workItem from="1595509711012" duration="304000" />
-      <workItem from="1595515408596" duration="6150000" />
+      <workItem from="1595515408596" duration="6418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17403000" />
+    <option name="totallyTimeSpent" value="17671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18009768" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -416,7 +415,7 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32923076" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32923076" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -779,8 +778,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/APIController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="57" column="34" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="34" />
+        <state relative-caret-position="251">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding>
             <element signature="e#118#144#0#PHP" expanded="true" />
           </folding>
