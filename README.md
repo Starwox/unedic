@@ -52,22 +52,6 @@ php bin/console app:create-department
   
 -----
 
-[Get All Department](https://localhost:8000/api/create_student) / Method: POST
-
-*Lien : https://localhost:8000/api/create_student*
-
-```json
-{
-    "success"
-    "id"
-    "firstname"
-    "lastname"
-    "numetud"
-}
-```
-  
------
-
 [Add Student to Department](https://localhost:8000/api/add_studtodep) / Method: POST
 
 *Lien : https://localhost:8000/api/create_student*
