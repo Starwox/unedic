@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use App\Form\StudentType;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Student;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;

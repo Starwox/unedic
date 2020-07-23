@@ -26,6 +26,10 @@ class Department
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *     max = 10,
+     *     maxMessage = "Max 10 digits"
+     * )
      */
     private $Capacity;
 

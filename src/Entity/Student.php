@@ -31,9 +31,9 @@ class Student
 
     /**
      * @ORM\Column(type="integer")
-     * @Assert\Range(
+     * @Assert\Length(
      *     max = 10,
-     *     notInRangeMessage = "Max 10 digits"
+     *     maxMessage = "Max 10 digits"
      * )
      */
     private $NumEtud;
