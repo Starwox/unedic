@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+    {{ form(form) }}
+
+    <button type="button" class="btn btn-outline-danger">
+        <a href="/" style="text-decoration: none; color: #222222;">
+            Retour
+        </a>
+    </button>
+
+{% endblock %}
