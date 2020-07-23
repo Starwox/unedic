@@ -64,21 +64,21 @@ class APIController extends AbstractController
         $lastname = $request->request->get('lastname');
         $numetud = $request->request->get('numetud');
 
-        // Check if Email was send as JSON
+        // Check if FirstName was send as JSON
         if (empty($firstname)) {
             $jsonId = json_decode(file_get_contents("php://input"), true);
 
             $firstname = $jsonId['firstname'];
         }
 
-        // Check if password was send as JSON
+        // Check if LastName was send as JSON
         if (empty($lastname)) {
             $jsonId = json_decode(file_get_contents("php://input"), true);
 
             $lastname = $jsonId['lastname'];
         }
 
-        // Check if name was send as JSON
+        // Check if NumEtud was send as JSON
         if (empty($numetud)) {
             $jsonId = json_decode(file_get_contents("php://input"), true);
 
@@ -109,6 +109,51 @@ class APIController extends AbstractController
             'lastname' => $student->getLastName(),
             'numetud' => $student->getNumEtud()
 
+        ]);
+    }
+
+
+    /**
+     * @Route("/api/create_dpartment", name="api_create_department", methods={"POST","HEAD"})
+     */
+    public function ApiCreateDepartment(Request $request): JsonResponse
+    {
+        $em = $this->getDoctrine()->getManager();
+        $name = $request->request->get('name');
+        $capacity = $request->request->get('capacity');
+
+        // Check if Name was send as JSON
+        if (empty($name)) {
+            $jsonId = json_decode(file_get_contents("php://input"), true);
+
+            $name = $jsonId['name'];
+        }
+
+        // Check if Capacity was send as JSON
+        if (empty($capacity)) {
+            $jsonId = json_decode(file_get_contents("php://input"), true);
+
+            $capacity = $jsonId['capacity'];
+        }
+
+        $repo = $this->getDoctrine()->getRepository(Student::class);
+        $checker = $repo->findBy([
+            'name' => $name,
+            'capacity' => $capacity
+        ]);
+
+        if (!empty($checker)) {
+            return new JsonResponse(['success' => 'no']);
+        }
+
+        $department = new Department();
+        $department->setName($name);
+        $department->setCapacity($capacity);
+        $em->persist($department);
+        $em->flush();
+
+        return new JsonResponse([
+            'success' => 'yes',
         ]);
     }
 }
