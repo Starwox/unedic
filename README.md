@@ -32,5 +32,76 @@ php bin/console app:create-department
 
 ### Principales:
 
+[Get All Department](https://localhost:8000/api/department) / Method: GET
+
+*Lien : https://localhost:8000/api/department*
+
+```json
+{
+    "id"
+    "Name"
+    "Capacity"
+    "student" => [
+      "id",
+      "FirstName",
+      "LastName",
+      "NumEtud"
+    ]
+}
+```
+  
+-----
+
+[Get All Department](https://localhost:8000/api/create_student) / Method: POST
+
+*Lien : https://localhost:8000/api/create_student*
+
+```json
+{
+    "success",
+    "id",
+    "firstname",
+    "lastname",
+    "numetud"
+}
+```
+  
+-----
+
+[Add Student to Department](https://localhost:8000/api/add_studtodep) / Method: POST
+
+*Lien : https://localhost:8000/api/create_student*
+
+**Datas à envoyer:** *student_id* / *department_id*
+
+```json
+{
+    "success"
+}
+```
+  
+-----
+
+[Get Department by ID](https://localhost:8000/api/oneDepart) / Method: POST
+
+*Lien : https://localhost:8000/api/create_student*
+
+**Datas à envoyer:** *department_id*
+
+```json
+{
+    "id"
+    "Name"
+    "Capacity"
+    "student" => [
+      "id",
+      "FirstName",
+      "LastName",
+      "NumEtud"
+    ]
+}
+```
+  
+-----
 
 
